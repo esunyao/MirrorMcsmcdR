@@ -26,9 +26,9 @@ class SystemProxy(AbstractSystemProxy):
     def __init__(self, terminal_name: str, launch_path: str, launch_command: str, port: int, regex_strict: bool, system: str) -> None:
         self.system_api: AbstractSystemProxy
         if system == "Linux":
-            self.system_api = LinuxProxy(terminal_name+"_"+PLUGIN_ID, launch_path, launch_command, port, regex_strict)
+            self.system_api = LinuxProxy(terminal_name, launch_path, launch_command, port, regex_strict)
         elif system == "Windows":
-            self.system_api = WindowsProxy(terminal_name+"_"+PLUGIN_ID, launch_path, launch_command, port, regex_strict)
+            self.system_api = WindowsProxy(terminal_name, launch_path, launch_command, port, regex_strict)
 
     def start(self):
         return self.system_api.start()
